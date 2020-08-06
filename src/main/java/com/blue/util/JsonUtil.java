@@ -3,6 +3,7 @@ package com.blue.util;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.apache.commons.lang3.StringUtils;
 
 public class JsonUtil {
@@ -14,6 +15,7 @@ public class JsonUtil {
 
         ObjectMapper mp = new ObjectMapper();
         mp.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mp.configure(SerializationFeature.INDENT_OUTPUT, true);
         try {
             return mp.writeValueAsString(o);
         } catch (JsonProcessingException e) {
@@ -29,6 +31,7 @@ public class JsonUtil {
         }
         ObjectMapper mp = new ObjectMapper();
         mp.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mp.configure(SerializationFeature.INDENT_OUTPUT, true);
         try {
             return (T) mp.readValue(json, t.getClass());
         } catch (JsonProcessingException e) {

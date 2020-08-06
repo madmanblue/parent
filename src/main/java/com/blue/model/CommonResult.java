@@ -2,11 +2,11 @@ package com.blue.model;
 
 import java.io.Serializable;
 
-public class Result implements Serializable {
+public class CommonResult<T> implements Serializable {
 
     private Integer code;
     private String msg;
-    private String date;
+    private T data;
 
     public Integer getCode() {
         return code;
@@ -24,11 +24,11 @@ public class Result implements Serializable {
         this.msg = msg;
     }
 
-    public String getDate() {
-        return date;
+    public T getData() {
+        return data;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setData(T data) {
+        this.data = data;
     }
 }
